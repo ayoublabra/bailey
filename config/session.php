@@ -154,8 +154,8 @@ return [
     |
     */
 
-    // 'domain' => env('SESSION_DOMAIN', null),
-    'domain' => 'bailey.devconnectdigital.com',
+    'domain' => env('SESSION_DOMAIN', null),
+    // 'domain' => 'bailey.devconnectdigital.com',
 
 
     /*

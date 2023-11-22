@@ -463,6 +463,26 @@ class UserController extends Controller
         // return redirect()->back()->withSuccess(__('message.msg_updated',['name' => 'My Profile']));
 
     }
+    public function block($id)  {
+        $currentTimestamp = now()->timestamp;
+        $user = User::find($id);
+        $user->is_blocked=1;
+        $user->blocked_at=$currentTimestamp;
+        $user->update();
+        return Redirect::route('getUsers');
+
+
+
+    }
+    public function deblock(Request $request, $id)  {
+        // $request->headers->set('X-CSRF-Token', csrf_token());
+
+        $user = User::find($id);
+        $user->is_blocked=null;
+        $user->blocked_at=null;
+        $user->update();
+        return Redirect::route('getUsers');
+    }
 
     /**
      * Remove the specified resource from storage.

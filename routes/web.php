@@ -88,6 +88,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('ibanCheck2', [VerificationController::class, 'ibanCheck2'])->name('ibanCheck2');
     Route::post('changeSigned', [ContractController::class, 'changeSigned'])->name('changeSigned');
     Route::post('resetIban', [ContractController::class, 'resetIban'])->name('resetIban');
+    Route::put('/block/{id}',[\App\Http\Controllers\UserController::class,'block'])->name('blockUser');
+    Route::put('/deblock/{id}',[\App\Http\Controllers\UserController::class,'deblock'])->name('deblockUser');
+
 
 
 
